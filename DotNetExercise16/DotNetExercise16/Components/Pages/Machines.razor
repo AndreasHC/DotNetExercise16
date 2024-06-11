@@ -1,5 +1,6 @@
 ﻿@page "/machines"
 @using DotNetExercise16.Entities
+@using DotNetExercise16.Subcomponents
 
 <!-- Copied from the weather template without necessarily understanding it-->
 @attribute [StreamRendering]
@@ -59,6 +60,8 @@ else
     </table>
 
 }
+
+<MachineStatistics machines ="@machines"></MachineStatistics>
 
 @code {
     private List<Machine>? machines;

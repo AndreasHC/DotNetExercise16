@@ -1,0 +1,11 @@
+﻿@using DotNetExercise16.Entities
+<h3>MachineStatistics</h3>
+Total number of machines: @machines.Count
+<br />
+Machines online: @machines.Where(o=> o.IsOnline).Count()
+
+
+@code {
+    [Parameter]
+    public List<Machine> machines { get; set; }
+}
