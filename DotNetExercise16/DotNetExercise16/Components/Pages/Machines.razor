@@ -30,31 +30,8 @@ else
         <tbody>
             @foreach (var machine in machines)
             {
-                Message? last = machine.Messages.LastOrDefault();
-                <tr>
-                    <td>@machine.Name</td>
-                    <td>@machine.Id.ToString()</td>
-                    @if (machine.IsOnline)
-                    {
-                        <td>Online</td>
-                    }
-                    else
-                    {
-                        <td>Offline</td>
-                    }
-                    @if(last == null)
-                    {
-                        <td />
-                        <td />
-
-                    }
-                    else
-                    {
-                        <td>@last.Time.ToShortDateString() @last.Time.ToLongTimeString()</td>
-                        <td>@last.Content</td>
-
-                    }
-                </tr>
+                <MachineRow machine ="@machine"></MachineRow>
+                
             }
         </tbody>
     </table>
