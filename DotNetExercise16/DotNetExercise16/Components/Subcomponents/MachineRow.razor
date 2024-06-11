@@ -1,0 +1,44 @@
+﻿@using DotNetExercise16.Entities
+
+@rendermode InteractiveServer
+
+
+@{
+    Message? last = Machine.Messages.LastOrDefault();
+}
+<tr>
+    <td>@Machine.Name</td>
+    <td>@Machine.Id.ToString()</td>
+    @if (Machine.IsOnline)
+    {
+        <td>Online</td>
+    }
+    else
+    {
+        <td>Offline</td>
+    }
+    @if (last == null)
+    {
+        <td />
+        <td />
+
+    }
+    else
+    {
+        <td>@last.Time.ToShortDateString() @last.Time.ToLongTimeString()</td>
+        <td>@last.Content</td>
+    }
+    <td><input @bind="DataToSend" /><button @onclick="SendMessage">Send data</button></td>
+</tr>
+
+@code {
+    [Parameter]
+    public Machine Machine { get; set; }
+    public string DataToSend { get; set; }
+
+    public void SendMessage()
+    {
+        Machine.Send(DataToSend);
+    }
+
+}

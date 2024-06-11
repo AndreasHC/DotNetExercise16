@@ -1,6 +1,8 @@
 ﻿@page "/machines"
+
+@rendermode InteractiveServer
 @using DotNetExercise16.Entities
-@using DotNetExercise16.Subcomponents
+@using DotNetExercise16.Components.Subcomponents
 
 <!-- Copied from the weather template without necessarily understanding it-->
 @attribute [StreamRendering]
@@ -30,7 +32,7 @@ else
         <tbody>
             @foreach (var machine in machines)
             {
-                <MachineRow machine ="@machine"></MachineRow>
+                <MachineRow Machine ="@machine"></MachineRow>
                 
             }
         </tbody>
