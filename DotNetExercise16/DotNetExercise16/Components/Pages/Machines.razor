@@ -3,6 +3,7 @@
 @rendermode InteractiveServer
 @using DotNetExercise16.Entities
 @using DotNetExercise16.Components.Subcomponents
+@inject MachinePark machinePark;
 
 <!-- Copied from the weather template without necessarily understanding it-->
 @attribute [StreamRendering]
@@ -47,6 +48,6 @@ else
 
     protected override void OnInitialized()
     {
-        machines = new MachinePark().Machines;
+        machines = machinePark.Machines;
     }
 }

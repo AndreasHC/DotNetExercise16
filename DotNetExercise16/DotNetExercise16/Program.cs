@@ -1,5 +1,6 @@
 using DotNetExercise16.Client.Pages;
 using DotNetExercise16.Components;
+using DotNetExercise16.Entities;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,6 +8,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents()
     .AddInteractiveWebAssemblyComponents();
+
+// Replace with something at least resembling a database at some point.
+builder.Services.AddSingleton<MachinePark>();
 
 var app = builder.Build();
 
