@@ -1,0 +1,21 @@
+﻿@page "/create_machine"
+@rendermode InteractiveServer
+@using DotNetExercise16.Entities
+@inject MachinePark machine_park;
+<h3>CreateMachine</h3>
+
+<input @bind=new_machine.Name/>
+<button @onclick=execute>Create</button>
+
+
+
+@code {
+    public Machine new_machine = new Machine(){Name = "", Id = Guid.NewGuid()};
+
+
+    void execute()
+    {
+        machine_park.Machines.Add(new_machine);
+        new_machine = new Machine() { Name = "", Id = Guid.NewGuid() };
+    }
+}
