@@ -6,6 +6,8 @@
 @{
     Message? last = Machine.Messages.LastOrDefault();
 }
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
+
 <tr>
     <td>@Machine.Name</td>
     <td>@Machine.Id.ToString()</td>
@@ -29,11 +31,14 @@
         <td>@last.Content</td>
     }
     <td><input @bind="DataToSend" /><button @onclick="SendMessage">Send data</button></td>
+    <td><button @onclick = "RemoveAction"><i class="bi bi-trash"></i></button></td>
 </tr>
 
 @code {
     [Parameter]
     public Machine Machine { get; set; }
+    [Parameter]
+    public Action RemoveAction { get; set; }
     public string DataToSend { get; set; }
 
     public void SendMessage()

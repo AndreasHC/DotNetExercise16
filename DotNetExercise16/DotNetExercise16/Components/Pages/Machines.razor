@@ -34,7 +34,7 @@ else
         <tbody>
             @foreach (var machine in machines)
             {
-                <MachineRow Machine ="@machine"></MachineRow>
+                <MachineRow Machine ="@machine" RemoveAction ="() => {machines.Remove(machine); this.StateHasChanged();}"></MachineRow>
                 
             }
         </tbody>
